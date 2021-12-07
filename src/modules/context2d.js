@@ -1589,7 +1589,7 @@ import {
    * @param width {Number} Optional. The width of the image to use (stretch or reduce the image)
    * @param height {Number} Optional. The height of the image to use (stretch or reduce the image)
    */
-  Context2D.prototype.drawImage = function(
+  Context2D.prototype.drawImage = async function(
     img,
     sx,
     sy,
@@ -1600,7 +1600,14 @@ import {
     width,
     height
   ) {
-    var imageProperties = this.pdf.getImageProperties(img);
+    var isSvg = /data:image\/svg\+xml/g.test(img.src);
+    var imageProperties = isSvg
+      ? {
+        width: width,
+        height: height,
+      }
+      : this.pdf.getImageProperties(img);
+
     var factorX = 1;
     var factorY = 1;
     var isClip;
@@ -1710,33 +1717,59 @@ import {
             .clip()
             .discardPath();
         }
-        this.pdf.addImage(
-          img,
-          "JPEG",
-          tmpRect.x,
-          tmpRect.y,
-          tmpRect.w,
-          tmpRect.h,
-          null,
-          null,
-          angle
-        );
+        if (isSvg) {
+          await this.pdf.addSvgAsImage(
+            unescape(img.src.split("data:image/svg+xml,").pop()),
+            tmpRect.x,
+            tmpRect.y,
+            tmpRect.w,
+            tmpRect.h,
+            null,
+            null,
+            angle
+          );
+        } else {
+          this.pdf.addImage(
+            img,
+            "JPEG",
+            tmpRect.x,
+            tmpRect.y,
+            tmpRect.w,
+            tmpRect.h,
+            null,
+            null,
+            angle
+          );
+        }
         if (needsClipping) {
           this.pdf.restoreGraphicsState();
         }
       }
     } else {
-      this.pdf.addImage(
-        img,
-        "JPEG",
-        xRect.x,
-        xRect.y,
-        xRect.w,
-        xRect.h,
-        null,
-        null,
-        angle
-      );
+      if (isSvg) {
+        await this.pdf.addSvgAsImage(
+          unescape(img.src.split("data:image/svg+xml,").pop()),
+          xRect.x,
+          xRect.y,
+          xRect.w,
+          xRect.h,
+          null,
+          null,
+          angle
+        );
+      } else {
+        this.pdf.addImage(
+          img,
+          "JPEG",
+          xRect.x,
+          xRect.y,
+          xRect.w,
+          xRect.h,
+          null,
+          null,
+          angle
+        );
+      }
     }
   };
 
