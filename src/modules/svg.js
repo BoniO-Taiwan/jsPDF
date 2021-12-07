@@ -126,7 +126,8 @@ import { globalObject } from "../libs/globalObject.js";
     var options = {
       ignoreMouse: true,
       ignoreAnimation: true,
-      ignoreDimensions: true
+      ignoreDimensions: true,
+      ignoreClear: true
     };
     var doc = this;
     return loadCanvg()
