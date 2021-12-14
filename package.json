@@ -1,7 +1,7 @@
 {
-  "name": "jspdf",
-  "version": "2.4.0",
-  "homepage": "https://github.com/mrrio/jspdf",
+  "name": "@c29429768/jspdf",
+  "version": "0.0.1",
+  "homepage": "https://github.com/MarginalCasey/jsPDF",
   "description": "PDF Document creation from JavaScript",
   "main": "dist/jspdf.node.min.js",
   "module": "dist/jspdf.es.min.js",
@@ -20,7 +20,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/MrRio/jsPDF.git"
+    "url": "https://github.com/MarginalCasey/jsPDF.git"
   },
   "dependencies": {
     "@babel/runtime": "^7.14.0",
