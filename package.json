@@ -32,7 +32,7 @@
     "canvg": "^3.0.6",
     "core-js": "^3.6.0",
     "dompurify": "^2.2.0",
-    "html2canvas": "git+ssh://git@github.com:MarginalCasey/html2canvas.git#feature/async-ctx-drawImage"
+    "html2canvas": "npm:@c29429768/html2canvas@0.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.10.4",
