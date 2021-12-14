@@ -116,10 +116,12 @@ import { globalObject } from "../libs/globalObject.js";
       );
     }
 
+    var ratio = window.devicePixelRatio || 1;
     var canvas = document.createElement("canvas");
-    canvas.width = w;
-    canvas.height = h;
+    canvas.width = w * ratio;
+    canvas.height = h * ratio;
     var ctx = canvas.getContext("2d");
+    ctx.scale(ratio, ratio)
     ctx.fillStyle = "#fff"; /// set white fill style
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
