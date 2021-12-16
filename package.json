@@ -1,6 +1,6 @@
 {
   "name": "@c29429768/jspdf",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "homepage": "https://github.com/MarginalCasey/jsPDF",
   "description": "PDF Document creation from JavaScript",
   "main": "dist/jspdf.node.min.js",
@@ -29,7 +29,7 @@
     "fflate": "^0.4.8"
   },
   "optionalDependencies": {
-    "canvg": "^3.0.6",
+    "canvg": "npm:@c29429768/canvg@0.0.1",
     "core-js": "^3.6.0",
     "dompurify": "^2.2.0",
     "html2canvas": "npm:@c29429768/html2canvas@0.0.1"
