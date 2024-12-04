@@ -1,7 +1,7 @@
 {
-  "name": "@c29429768/jspdf",
-  "version": "0.0.3",
-  "homepage": "https://github.com/MarginalCasey/jsPDF",
+  "name": "@bonio-tw/jspdf",
+  "version": "0.0.8",
+  "homepage": "https://github.com/BoniO-Taiwan/jsPDF",
   "description": "PDF Document creation from JavaScript",
   "main": "dist/jspdf.node.min.js",
   "module": "dist/jspdf.es.min.js",
@@ -20,7 +20,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/MarginalCasey/jsPDF.git"
+    "url": "https://github.com/BoniO-Taiwan/jsPDF.git"
   },
   "dependencies": {
     "@babel/runtime": "^7.14.0",
@@ -29,10 +29,10 @@
     "fflate": "^0.4.8"
   },
   "optionalDependencies": {
-    "canvg": "npm:@c29429768/canvg@0.0.2",
+    "canvg": "npm:@bonio-tw/canvg@0.0.2",
     "core-js": "^3.6.0",
     "dompurify": "^2.2.0",
-    "html2canvas": "npm:@c29429768/html2canvas@0.0.1"
+    "html2canvas": "npm:@bonio-tw/html2canvas@0.0.3"
   },
   "devDependencies": {
     "@babel/core": "^7.10.4",
